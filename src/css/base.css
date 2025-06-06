@@ -1,20 +1,34 @@
-:root {
-  font-family: "IBM Plex Sans", "Epilogue", "Roboto", sans-serif;
-  font-size: 20px;
-  line-height: 1.5;
-  font-weight: 400;
+@font-face {
+  font-family: 'Epilogue';
+  src: url('../fonts/Epilogue-VariableFont_wght.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
-  color: #fff;
-  background-color: #060307;
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('../fonts/IBMPlexSans-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #060307;
   display: flex;
   flex-direction: column;
   min-width: 100vw;
