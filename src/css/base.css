@@ -22,13 +22,25 @@
   font-display: swap;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
+:root {
+  --font-family: "IBM Plex Sans", sans-serif;
+  --second-family: "Epilogue", sans-serif;
+  --third-family: "Roboto", sans-serif;
+}
+
+:root {
+  --font-family: "IBM Plex Sans", sans-serif;
+  --second-family: "Epilogue", sans-serif;
+  --third-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 1.5;
+
   color: #fff;
   background-color: #060307;
+}
+
+body {
   display: flex;
   flex-direction: column;
   min-width: 100vw;
