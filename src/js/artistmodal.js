@@ -117,4 +117,3 @@ function renderAlbums(albums) {
     container.appendChild(section);
   });
 }
-console.log(document.querySelector('.modal-loader'));
