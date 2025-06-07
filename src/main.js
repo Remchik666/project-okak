@@ -58,7 +58,7 @@ window.onload = async event => {
     }
   } catch (error) {
     iziToast.error({
-      message: 'Error loading more images.',
+      message: 'Error loading more Artists.',
       position: 'topRight',
     });
     console.log('Error: ', error);
@@ -86,7 +86,7 @@ moreBtn.addEventListener('click', async () => {
     }
   } catch (error) {
     iziToast.error({
-      message: 'Error loading more images.',
+      message: 'Error loading more Artists.',
       position: 'topRight',
     });
     console.error('Load More Error:', error);

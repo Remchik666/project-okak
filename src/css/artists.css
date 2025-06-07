@@ -26,6 +26,8 @@
 }
 .artist-img {
   width: 100%;
+  max-height: 177px;
+  object-fit: cover;
   border-radius: 16px;
   margin-bottom: 24px;
 }
@@ -109,6 +111,9 @@
     gap: 32px;
     margin-bottom: 64px;
   }
+  .artist-img {
+    max-height: 432px;
+  }
   .artists-load-more {
     margin: auto;
     width: 340px;
@@ -131,6 +136,9 @@
   }
   .artist-block {
     width: calc((100% - 32px) / 2);
+  }
+  .artist-img {
+    max-height: 393px;
   }
   .artists-load-more {
     width: 170px;
