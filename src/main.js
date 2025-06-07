@@ -24,18 +24,6 @@ let currentPage = 1;
 let loadedArtistsCount = 0;
 let totalArtists = 0;
 
-function showWarning(message) {
-  iziToast.warning({
-    message,
-    iconUrl: errorIcon,
-    iconColor: '#fff',
-    messageColor: '#fff',
-    position: 'topRight',
-    messageSize: '16px',
-    backgroundColor: '#EF4040',
-  });
-}
-
 window.onload = async event => {
   currentPage = 1;
   loadedArtistsCount = 0;
@@ -47,9 +35,14 @@ window.onload = async event => {
     // console.log(artists);
     totalArtists = artists.totalArtists;
     if (totalArtists === 0) {
-      showWarning(
-        'Sorry, there are no Artists matching your search query. Please try again!'
-      );
+      iziToast.info({
+        message:
+          'Sorry, there are no Artists matching your search query. Please try again!',
+        messageColor: '#fff',
+        position: 'topRight',
+        messageSize: '16px',
+        backgroundColor: '#EF4040',
+      });
       hideLoader();
     } else {
       createArtistsList(artists.artists);
@@ -58,8 +51,9 @@ window.onload = async event => {
     }
   } catch (error) {
     iziToast.error({
-      message: 'Error loading more Artists.',
+      message: 'Error loading Artists.',
       position: 'topRight',
+      backgroundColor: '#EF4040',
     });
     console.log('Error: ', error);
     hideLoader();
@@ -88,6 +82,7 @@ moreBtn.addEventListener('click', async () => {
     iziToast.error({
       message: 'Error loading more Artists.',
       position: 'topRight',
+      backgroundColor: '#EF4040',
     });
     console.error('Load More Error:', error);
     hideLoader();
