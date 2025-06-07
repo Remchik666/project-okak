@@ -46,6 +46,7 @@ html {
 
 .btn-menu-icon {
 	fill: #fff;
+	stroke: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -81,6 +82,8 @@ html {
 	}
 
 	.nav-menu-link {
+		position: relative;
+		text-decoration: none;
 		padding: 12px 0;
 		font-family: "IBM Plex Sans", sans-serif;
 		font-weight: 400;
@@ -88,4 +91,104 @@ html {
 		line-height: 1.5;
 		color: #fff;
 	}
+
+	.nav-menu-link::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 4px;
+		width: 100%;
+		height: 2px;
+		background-color: #fff;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.3s ease;
+	}
+
+	.nav-menu-link:hover::after,
+	.nav-menu-link:focus::after {
+		transform: scaleX(1);
+	}
+
+	.nav-menu-link:active {
+		opacity: 0.6;
+	}
+
+	.nav-menu-link.active {
+		opacity: 0.6;
+	}
+
+	.nav-menu-link.active::after {
+		transform: scaleX(1);
+	}
+
 }
+
+/* ---------------------------------- */
+.hero-section {
+	padding: 100px 0;
+	background-color: blueviolet;
+	color: blueviolet;
+}
+
+.container-hero {
+	background-color: aliceblue;
+	height: 600px;
+}
+
+.artists-section {
+	padding: 100px 0;
+	background-color: aliceblue;
+	scroll-margin-top: 64px;
+}
+
+.container-artists {
+	background-color: blueviolet;
+	height: 1000px;
+}
+
+@media screen and (min-width: 768px) {
+	.artists-section {
+		scroll-margin-top: 72px;
+	}
+}
+
+.aboutus-section {
+	padding: 100px 0;
+	background-color: blueviolet;
+	color: blueviolet;
+}
+
+.container-about {
+	background-color: aliceblue;
+	height: 600px;
+}
+
+@media screen and (min-width: 768px) {
+	.aboutus-section {
+		scroll-margin-top: 72px;
+	}
+}
+
+.feedback-section {
+	padding: 100px 0;
+	background-color: aliceblue;
+	scroll-margin-top: 64px;
+}
+
+.container-feed {
+	background-color: blueviolet;
+	height: 1000px;
+}
+
+@media screen and (min-width: 768px) {
+	.feedback-section {
+		scroll-margin-top: 72px;
+	}
+}
+
+footer {
+	height: 2000px;
+}
+
+/* ---------------------------------- */
