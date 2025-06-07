@@ -10,10 +10,6 @@
   padding: 16px;
 }
 
-.icon-close {
-  color: white;
-}
-
 .artist-modal {
   background: #1c1c1c;
   color: #fff;
@@ -31,6 +27,25 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+.modal-loader {
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #999;
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.is-hidden {
+  display: none !important;
 }
 
 .artist-image {
