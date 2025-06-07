@@ -144,6 +144,10 @@
     width: 641px;
   }
 
+  .hero-btn {
+    width: 206px;
+  }
+
     @media (min-resolution: 192dpi),
     (min-resolution: 2x) {
       .hero-image {
