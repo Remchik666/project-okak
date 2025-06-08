@@ -1,0 +1,123 @@
+html {
+	scroll-behavior: smooth;
+}
+
+.header {
+	position: sticky;
+	top: 0;
+	padding: 6.5px 0;
+	z-index: 998;
+	background-color: #060307;
+}
+
+.nav-menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav-menu-logo {
+	display: block;
+	width: 119px;
+	height: 51px;
+	padding: 10px 6px;
+	cursor: pointer;
+}
+
+.logo-menu {
+	fill: #764191;
+}
+
+.nav-menu-pc {
+	display: none;
+}
+
+
+.btn-menu {
+	background-color: transparent;
+	border: none;
+	width: 48px;
+	height: 48px;
+	padding: 12px;
+	cursor: pointer;
+}
+
+.btn-menu-icon {
+	fill: #fff;
+	stroke: none;
+}
+
+@media screen and (min-width: 768px) {
+
+	.header-container {
+		padding: 0 64px;
+	}
+
+	.header {
+		padding: 10.5px 0;
+	}
+
+	.logo-menu {
+		fill: #fff;
+	}
+
+	.btn-menu {
+		display: none;
+	}
+
+	.nav-menu-pc {
+		display: initial;
+	}
+
+	.nav-menu-list {
+		display: flex;
+		gap: 32px;
+		height: 51px;
+	}
+
+	.nav-menu-item {
+		display: flex;
+	}
+
+	.nav-menu-link {
+		position: relative;
+		text-decoration: none;
+		padding: 12px 0;
+		font-family: "IBM Plex Sans", sans-serif;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 1.5;
+		color: #fff;
+	}
+
+	.nav-menu-link::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 4px;
+		width: 100%;
+		height: 2px;
+		background-color: #fff;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.3s ease;
+	}
+
+	.nav-menu-link:hover::after,
+	.nav-menu-link:focus::after {
+		transform: scaleX(1);
+	}
+
+	.nav-menu-link:active {
+		opacity: 0.6;
+	}
+
+	.nav-menu-link.active {
+		opacity: 0.6;
+	}
+
+	.nav-menu-link.active::after {
+		transform: scaleX(1);
+	}
+
+}
