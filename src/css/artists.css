@@ -2,13 +2,14 @@ img {
   width: 100%;
   height: auto;
 }
+
 .artist-img {
   border-radius: 16px;
 }
 
 .container-aboutu {
   position: static;
-  width: 280x;
+  width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -26,8 +27,7 @@ img {
 .artists-icon {
   fill: #f4f4fd;
 }
-.visually-hidden {
-  /* Heading/Desktop/H2 */
+.heading-aboutu {
   margin: 20px 0px;
   font-family: Epilogue;
   font-size: 44px;
@@ -38,7 +38,6 @@ img {
 }
 
 .title-aboutu {
-  /* Text/Medium/Normal */
   font-family: IBM Plex Sans;
   font-size: 18px;
   font-weight: 400;
@@ -65,8 +64,7 @@ img {
     width: 80px;
   }
 
-  .visually-hidden {
-    /* Heading/Desktop/H2 */
+  .heading-aboutu {
     margin: 24px 0px;
   }
   .title-aboutu {
@@ -95,8 +93,7 @@ img {
     gap: 24;
     margin-left: 32px;
   }
-  .visually-hidden {
-    /* Heading/Desktop/H2 */
+  .heading-aboutu {
     margin: 24px 0px;
     font-size: 60px;
   }
