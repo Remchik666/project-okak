@@ -105,8 +105,8 @@ function renderAlbums(albums) {
               <span>${track.title}</span>
               <span>${track.time}</span>
               <a href="${track.youtube}" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16">
-                  <use href="../img/icons/icons.svg#youtube"></use>
+                <svg  width="20" height="14">
+                  <use href="/img/icons/icons.svg#icon-Youtube"></use>
                 </svg>
               </a>
             </li>
