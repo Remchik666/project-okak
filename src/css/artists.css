@@ -48,7 +48,7 @@ img {
 }
 
 @media screen and (min-width: 768px) {
-  .work-box {
+  .container-aboutu {
     width: 768px;
   }
 
@@ -75,7 +75,7 @@ img {
 }
 
 @media screen and (min-width: 1440px) {
-  .work-box {
+  .container-aboutu {
     width: 1440px;
     display: flex;
   }
