@@ -2,13 +2,11 @@ html {
 	scroll-behavior: smooth;
 }
 
-/* Header */
-
 .header {
 	position: sticky;
 	top: 0;
 	padding: 6.5px 0;
-	z-index: 1000;
+	z-index: 998;
 	background-color: #060307;
 }
 
@@ -123,72 +121,3 @@ html {
 	}
 
 }
-
-/* ---------------------------------- */
-.hero-section {
-	padding: 100px 0;
-	background-color: blueviolet;
-	color: blueviolet;
-}
-
-.container-hero {
-	background-color: aliceblue;
-	height: 600px;
-}
-
-.artists-section {
-	padding: 100px 0;
-	background-color: aliceblue;
-	scroll-margin-top: 64px;
-}
-
-.container-artists {
-	background-color: blueviolet;
-	height: 1000px;
-}
-
-@media screen and (min-width: 768px) {
-	.artists-section {
-		scroll-margin-top: 72px;
-	}
-}
-
-.aboutus-section {
-	padding: 100px 0;
-	background-color: blueviolet;
-	color: blueviolet;
-}
-
-.container-about {
-	background-color: aliceblue;
-	height: 600px;
-}
-
-@media screen and (min-width: 768px) {
-	.aboutus-section {
-		scroll-margin-top: 72px;
-	}
-}
-
-.feedback-section {
-	padding: 100px 0;
-	background-color: aliceblue;
-	scroll-margin-top: 64px;
-}
-
-.container-feed {
-	background-color: blueviolet;
-	height: 1000px;
-}
-
-@media screen and (min-width: 768px) {
-	.feedback-section {
-		scroll-margin-top: 72px;
-	}
-}
-
-footer {
-	height: 2000px;
-}
-
-/* ---------------------------------- */

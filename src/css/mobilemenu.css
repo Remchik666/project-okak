@@ -1,0 +1,70 @@
+.mobile-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	z-index: 999;
+	transform: translateX(100%);
+	transition: transform 100ms cubic-bezier(0.4, 0, 0.2, 1);
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.mobile-menu.is-open {
+	transform: translateX(0);
+	visibility: visible;
+	opacity: 1;
+	pointer-events: auto;
+	background-color: #060307;
+	transition: background-color 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-container {
+	height: 100%;
+	position: relative;
+}
+
+.header-mob-menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 6.5px 0;
+	margin-bottom: 40px;
+}
+
+.mob-menu-close-btn {
+	display: block;
+	background-color: transparent;
+	border: none;
+	width: 48px;
+	height: 48px;
+	padding: 12px;
+	cursor: pointer;
+}
+
+.mob-menu-close-icon {
+	fill: #fff;
+	padding: 6.34px;
+}
+
+.nav-mob-menu {}
+
+.mob-menu-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 32px;
+}
+
+.mob-menu-item {}
+
+.mob-menu-link {
+	font-family: "IBM Plex Sans", sans-serif;
+	font-weight: 500;
+	font-size: 26px;
+	line-height: 150%;
+	color: #fff;
+}
