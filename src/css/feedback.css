@@ -1,0 +1,207 @@
+.feedback-section {
+  padding: 64px 0;
+  scroll-margin-top: 64px;
+}
+
+.feedback-descr {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  text-align: center;
+  width: 288px;
+  margin: 0 auto 32px;
+}
+
+.feedback-name {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.star-rating {
+  display: flex;
+  gap: 4px;
+  position: relative;
+  width: max-content;
+  height: 20px;
+  user-select: none;
+  margin: 0 auto 32px auto;
+}
+
+.star-container {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.star-container .star {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.star-container .star--filled {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.swiper.modal-product__slider {
+  position: relative;
+  height: auto;
+  padding-bottom: 28px;
+}
+
+.swiper-pagination.custom-pagination {
+  width: 288px;
+  height: 28px;
+  position: absolute;
+  transform: translatey(15%);
+}
+
+.custom-swiper-button-prev,
+.custom-swiper-button-next {
+  display: none;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  fill: #ffffff;
+}
+
+.custom-swiper-button-prev {
+  left: 0;
+}
+
+.custom-swiper-button-next {
+  right: 0;
+}
+
+.swiper-nav-icon {
+  display: none;
+}
+
+.custom-swiper-button-next:hover .swiper-nav-icon,
+.custom-swiper-button-prev:hover .swiper-nav-icon {
+  fill: #ffffff;
+}
+
+.swiper-pagination-bullet {
+  transition: background-color 0.3s ease;
+}
+
+.swiper {
+  --swiper-pagination-bullet-width: 9px;
+  --swiper-pagination-bullet-height: 9px;
+  --swiper-pagination-color: #ffffff;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: 4.5px;
+  --swiper-pagination-bullet-inactive-color: #ffffff;
+  --swiper-pagination-bullet-inactive-opacity: 0.2;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.feedback-btn {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 288px;
+  height: 47px;
+  background-color: #764191;
+  font-family: 'IBM Plex Sans', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feedback-btn:hover {
+  background-color: #5e3272;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+  .custom-swiper-button-prev,
+  .custom-swiper-button-next {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-98.67px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    padding: 11px;
+    z-index: 10;
+  }
+
+  .swiper-wrapper {
+    margin-bottom: 72px;
+  }
+
+  .swiper-nav-icon {
+    display: block;
+    fill: #ffffff;
+    transition: fill 0.3s ease;
+  }
+
+  .feedback-descr {
+    width: 518px;
+    font-size: 26px;
+  }
+
+  .swiper-pagination.custom-pagination {
+    width: 704px;   
+  }
+
+  .swiper::before,
+  .swiper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .swiper::before {
+    left: 0;
+    background: linear-gradient(to right, #060307 0%, transparent 100%);
+  }
+
+  .swiper::after {
+    right: 0;
+    background: linear-gradient(to left, #060307 0%, transparent 100%);
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1440px) {
+  .feedback-section {
+    padding: 112px 0;
+    scroll-margin-top: 72px;
+  }
+
+  .swiper-pagination.custom-pagination {
+    width: 1332px;   
+  }
+
+  .feedback-descr {
+    width: 866px;
+  }
+}

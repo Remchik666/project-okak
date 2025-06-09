@@ -1,70 +1,95 @@
-const artistsBlock = document.querySelector('.artists-block-list');
-const loader = document.querySelector('.loader');
-const moreBtn = document.querySelector('.artists-load-more');
-
-export function clearList() {
-  artistsBlock.innerHTML = '';
-}
-export function showLoader() {
-  loader.hidden = false;
-}
-export function hideLoader() {
-  loader.hidden = true;
-}
-export function showLoadMoreButton() {
-  moreBtn.hidden = false;
-}
-export function hideLoadMoreButton() {
-  moreBtn.hidden = true;
-}
-
-export function createArtistsList(artists) {
-  const markup = artists
-    .map(
-      ({ _id, strArtist, strBiographyEN, strArtistThumb, genres }) =>
-        `<div class="artist-block" data-id="${_id}">
-            <a class="artist-link" href="#" aria-label="Go to artist ${strArtist}">
-            <img class="artist-img" src="${
-              strArtistThumb || '../img/no-image.jpg'
-            }" alt="${strArtist}" loading="lazy" onerror="this.onerror=null; this.src='../img/no-image.jpg';"></a>
-            ${createGenresList(genres)}
-            <h5 class="artist-name">${escapeHTML(strArtist)}</h5>
-            <p class="artist-description">${truncateText(
-              escapeHTML(strBiographyEN),
-              200
-            )}</p>
-            <a class="artist-learn-link" href="#"
-        >Learn More<svg class="artist-link-icon" width="24" height="24">
-          <use href="../img/icons/icons.svg#arrow-right"></use></svg></a>
-        </div>`
-    )
+export function createFeedBack(feedBacks) {
+  const feedBackMarkup = feedBacks
+    .map(({ _id, name, rating, descr }) => {
+      const roundedRating = Math.round(rating * 2) / 2;
+      const starsMarkup = Array.from({ length: 5 })
+        .map((_, i) => {
+          const starFill = Math.min(Math.max(roundedRating - i, 0), 1);
+          const fillPercent = starFill * 100;
+          return `
+      <span class="star-container" style="position: relative; width: 20px; height: 20px; display: inline-block;">
+        <svg class="star star--empty" width="20" height="20" style="position: absolute; top: 0; left: 0;">
+          <use href="${iconBaseUrl}#star" fill="#fff"></use>
+        </svg>
+        <div class="star-fill-wrapper" style="width: ${fillPercent}%; height: 20px; overflow: hidden; position: absolute; top: 0; left: 0;">
+          <svg class="star star--filled" width="20" height="20">
+            <use href="${iconBaseUrl}#star" fill="#764191"></use>
+          </svg>
+        </div>
+      </span>`;
+        })
+        .join('');
+      return `
+      <div class="swiper-slide" data-id="${_id}">
+        <div class="star-rating">${starsMarkup}</div>
+        <p class="feedback-descr">${descr}</p>
+        <p class="feedback-name">${name}</p>
+      </div>`;
+    })
     .join('');
-  artistsBlock.insertAdjacentHTML('beforeend', markup);
-}
 
-function createGenresList(genres = []) {
-  if (!Array.isArray(genres) || genres.length === 0) return '';
-  const listItems = genres
-    .map(genre => `<li class="artist-genres-item">${escapeHTML(genre)}</li>`)
-    .join('');
-  return `<ul class="artist-genres-list">${listItems}</ul>`;
-}
+  const markup = `
+    <div class="swiper modal-product__slider">
+      <div class="custom-swiper-button-prev">
+        <svg class="swiper-nav-icon" width="24" height="24">
+          <use href="${iconBaseUrl}#icon-left-arrow-alt"></use>
+        </svg>
+      </div>
+      <div class="swiper-wrapper">
+        ${feedBackMarkup}
+      </div>
+      <div class="custom-swiper-button-next">
+        <svg class="swiper-nav-icon" width="24" height="24">
+          <use href="${iconBaseUrl}#icon-right-arrow-alt"></use>
+        </svg>
+      </div>
+      <div class="swiper-pagination custom-pagination"></div>
+    </div>
+    <div class="btn-container">
+        <button class="feedback-btn" id="leaveFeedbackBtn">Leave feedback</button>
+    </div>
+  `;
 
-function escapeHTML(str = '') {
-  return str.replace(
-    /[&<>"']/g,
-    match =>
-      ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#039;',
-      }[match])
-  );
-}
+  const container = document.querySelector('.feedback-container');
+  container.innerHTML = markup;
 
-function truncateText(str, maxLength) {
-  if (!str) return '';
-  return str.length > maxLength ? str.slice(0, maxLength) + '…' : str;
+  new Swiper('.modal-product__slider', {
+    speed: 1000,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: '.custom-swiper-button-next',
+      prevEl: '.custom-swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        if (index < 3) {
+          return `<span class="${className}" data-bullet="${index}"></span>`;
+        }
+        return '';
+      },
+    },
+    on: {
+      slideChange: function (swiper) {
+        const bullets = document.querySelectorAll('.swiper-pagination span');
+        bullets.forEach(b =>
+          b.classList.remove('swiper-pagination-bullet-active')
+        );
+        const activeIndex = swiper.activeIndex;
+        const total = swiper.slides.length;
+        if (activeIndex === 0) {
+          bullets[0].classList.add('swiper-pagination-bullet-active');
+        } else if (activeIndex === total - 1) {
+          bullets[2].classList.add('swiper-pagination-bullet-active');
+        } else {
+          bullets[1].classList.add('swiper-pagination-bullet-active');
+        }
+      },
+    },
+    autoplay: {
+      delay: 5000,
+    },
+  });
 }

@@ -93,13 +93,5 @@ body {
   line-height: 1.5;
   color: #fff;
   background-color: #060307;
-  display: flex;
-  flex-direction: column;
-  min-width: 100vw;
-  min-height: 100vh;
   margin: 0;
-}
-
-main {
-  flex-grow: 1;
 }
