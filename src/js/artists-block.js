@@ -47,7 +47,7 @@ function createArtistsList(artists) {
             )}</p>
             <a class="artist-learn-link" href="#"
         >Learn More<svg class="artist-link-icon" width="24" height="24">
-          <use href="../img/icons/icons.svg#arrow-right"></use></svg></a>
+          <use href="./icons.svg#arrow-right"></use></svg></a>
         </div>`
     )
     .join('');
