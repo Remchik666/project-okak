@@ -1,6 +1,5 @@
 .footer {
   padding: 48px 0;
-
 }
 @media only screen and (min-width: 768px) {
   .footer {
@@ -10,9 +9,8 @@
 
 .footer-logo {
   width: 116px;
-height: 45px;
-  fill: #764191; 
- 
+  height: 45px;
+  fill: #764191;
 }
 
 .footer-logo--desktop {
@@ -20,74 +18,60 @@ height: 45px;
 }
 
 .footer-logo--mobile {
-display: flex;
-  margin-bottom: 32px;
-}
-
-
-@media only screen and (min-width: 768px){
-  .footer-logo--desktop {
-  margin-bottom: 32px;
   display: flex;
+  margin-bottom: 32px;
 }
 
-.footer-logo--mobile {
- 
-  display: none;
-}
-}
+@media only screen and (min-width: 768px) {
+  .footer-logo--desktop {
+    margin-bottom: 32px;
+    display: flex;
+  }
 
+  .footer-logo--mobile {
+    display: none;
+  }
+}
 
 .footer-top {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 48px;
-
-  
 }
-@media only screen and (min-width: 768px){
-  .footer-top{
-    padding-bottom:  80px;
+@media only screen and (min-width: 768px) {
+  .footer-top {
+    padding-bottom: 80px;
   }
 }
 
-.footer-nav{
+.footer-nav {
   width: 280px;
-
 }
 .footer-nav-list {
- display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 32px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-
+  justify-content: center;
+  text-align: center;
 }
 @media only screen and (min-width: 768px) {
   .footer-nav-list {
-    display: flex;
     flex-direction: row;
-    justify-content: center; 
-    flex-wrap: wrap; 
-  
+    flex-wrap: wrap;
   }
 }
-
 
 .footer-nav-list a {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
- display: inline-block;
+  display: inline-block;
   text-decoration: none;
   color: #fff;
-   min-width: 50px;
-   white-space: nowrap;
-   letter-spacing: 0;
+  min-width: 50px;
+  white-space: nowrap;
+  letter-spacing: 0;
 }
 
 .footer-nav a:hover {
@@ -99,21 +83,46 @@ display: flex;
   justify-content: center;
 }
 
+.footer-bottom {
+  position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+  }
+}
+
+.footer-bottom::before {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 280px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+@media only screen and (min-width: 768px) {
+  .footer-bottom::before {
+    content: '';
+    display: block;
+    width: 100%;
+    top: -32px;
+    left: 50%;
+  }
+}
 
 .footer-bottom-list {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  border-top: 1px solid #333;
   padding-top: 32px;
   padding-bottom: 24px;
-  gap: 32px;
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  text-align: center;
-    
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -122,6 +131,8 @@ display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 }
 
@@ -130,31 +141,20 @@ display: flex;
   align-items: center;
 }
 
-/* .footer-bottom-list p {
+.paragraph-footer-bottom {
   margin: 0;
   font-size: 16px;
   font-weight: 400;
-    font-family:'IBM Plex Sans', sans-serif;
-  
-    line-height: 150%;
-} */
+  font-family: 'IBM Plex Sans', sans-serif;
 
-.paragraph-footer-bottom{
-   margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-    font-family:'IBM Plex Sans', sans-serif;
-  
-    line-height: 150%;
+  line-height: 150%;
 }
 
 .social-icons {
   display: flex;
   flex-direction: row;
   gap: 32px;
- 
 }
- 
 
 @media only screen and (min-width: 768px) {
   .social-icons {
@@ -162,27 +162,22 @@ display: flex;
   }
 }
 
-.icon-svg-footer{
+.icon-svg-footer {
   width: 40px;
   height: 40px;
   fill: #ffffff;
   display: flex;
 }
 
-
-@media only screen and (min-width: 768px){
-  .icon-svg-footer{
+@media only screen and (min-width: 768px) {
+  .icon-svg-footer {
     width: 32px;
-    height: 32px
-    ;
+    height: 32px;
   }
 }
-@media only screen and (min-width: 1440px){
-  .icon-svg-footer{
+@media only screen and (min-width: 1440px) {
+  .icon-svg-footer {
     width: 24px;
     height: 24px;
   }
 }
-
-
-
