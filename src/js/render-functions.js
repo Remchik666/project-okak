@@ -1,5 +1,6 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
+const iconBaseUrl = `${import.meta.env.BASE_URL}icons.svg`;
 
 export function createFeedBack(feedBacks) {
   const feedBackMarkup = feedBacks
@@ -12,11 +13,11 @@ export function createFeedBack(feedBacks) {
           return `
       <span class="star-container" style="position: relative; width: 20px; height: 20px; display: inline-block;">
         <svg class="star star--empty" width="20" height="20" style="position: absolute; top: 0; left: 0;">
-          <use href="/icons.svg#star" fill="#fff"></use>
+          <use href="${iconBaseUrl}#star" fill="#fff"></use>
         </svg>
         <div class="star-fill-wrapper" style="width: ${fillPercent}%; height: 20px; overflow: hidden; position: absolute; top: 0; left: 0;">
           <svg class="star star--filled" width="20" height="20">
-            <use href="/icons.svg#star" fill="#764191"></use>
+            <use href="${iconBaseUrl}#star" fill="#764191"></use>
           </svg>
         </div>
       </span>`;
@@ -35,7 +36,7 @@ export function createFeedBack(feedBacks) {
     <div class="swiper modal-product__slider">
       <div class="custom-swiper-button-prev">
         <svg class="swiper-nav-icon" width="24" height="24">
-          <use href="/icons.svg#icon-left-arrow-alt"></use>
+          <use href="${iconBaseUrl}#icon-left-arrow-alt"></use>
         </svg>
       </div>
       <div class="swiper-wrapper">
@@ -43,7 +44,7 @@ export function createFeedBack(feedBacks) {
       </div>
       <div class="custom-swiper-button-next">
         <svg class="swiper-nav-icon" width="24" height="24">
-          <use href="/icons.svg#icon-right-arrow-alt"></use>
+          <use href="${iconBaseUrl}#icon-right-arrow-alt"></use>
         </svg>
       </div>
       <div class="swiper-pagination custom-pagination"></div>
