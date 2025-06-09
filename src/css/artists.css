@@ -4,7 +4,7 @@
 
 .container-aboutu {
   position: static;
-  width: 280x;
+  width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -22,8 +22,7 @@
 .artists-icon {
   fill: #f4f4fd;
 }
-.visually-hidden {
-  /* Heading/Desktop/H2 */
+.heading-aboutu {
   margin: 20px 0px;
   font-family: Epilogue;
   font-size: 44px;
@@ -34,7 +33,6 @@
 }
 
 .title-aboutu {
-  /* Text/Medium/Normal */
   font-family: IBM Plex Sans;
   font-size: 18px;
   font-weight: 400;
@@ -61,8 +59,7 @@
     width: 80px;
   }
 
-  .visually-hidden {
-    /* Heading/Desktop/H2 */
+  .heading-aboutu {
     margin: 24px 0px;
   }
   .title-aboutu {
@@ -91,8 +88,7 @@
     gap: 24;
     margin-left: 32px;
   }
-  .visually-hidden {
-    /* Heading/Desktop/H2 */
+  .heading-aboutu {
     margin: 24px 0px;
     font-size: 60px;
   }
