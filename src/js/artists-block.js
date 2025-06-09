@@ -79,12 +79,7 @@ function escapeHTML(str = '') {
 function truncateText(str, maxLength) {
   if (!str) return '';
   return str.length > maxLength ? str.slice(0, maxLength) + '…' : str;
-  import Swiper from 'swiper/bundle';
-  import 'swiper/css/bundle';
-  const iconBaseUrl = `${import.meta.env.BASE_URL}icons.svg`;
 }
-
-const moreBtn = document.querySelector('.artists-load-more');
 
 let currentPage = 1;
 let loadedArtistsCount = 0;
