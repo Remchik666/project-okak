@@ -91,8 +91,8 @@ export function createFeedBack(feedBacks) {
         }
       },
     },
-    // autoplay: {
-    //   delay: 5000,
-    // },
+    autoplay: {
+      delay: 5000,
+    },
   });
 }
