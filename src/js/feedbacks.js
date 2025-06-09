@@ -4,9 +4,10 @@ import { createFeedBack } from './render-functions';
 async function renderFeedbackSection() {
   try {
     const response = await getFeedBacks();
-    console.log('API response:', response);
     if (response && response.data) {
-      createFeedBack(response.data);
+      const shuffled = [...response.data].sort(() => Math.random() - 0.5);
+      const selected = shuffled.slice(0, 3);
+      createFeedBack(selected);
     } else {
       console.warn('No feedbacks found or wrong format:', response);
     }

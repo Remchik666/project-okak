@@ -12,11 +12,11 @@ export function createFeedBack(feedBacks) {
           return `
       <span class="star-container" style="position: relative; width: 20px; height: 20px; display: inline-block;">
         <svg class="star star--empty" width="20" height="20" style="position: absolute; top: 0; left: 0;">
-          <use href="/img/icons/icons.svg#star" fill="#fff"></use>
+          <use href="/icons.svg#star" fill="#fff"></use>
         </svg>
         <div class="star-fill-wrapper" style="width: ${fillPercent}%; height: 20px; overflow: hidden; position: absolute; top: 0; left: 0;">
           <svg class="star star--filled" width="20" height="20">
-            <use href="/img/icons/icons.svg#star" fill="#764191"></use>
+            <use href="/icons.svg#star" fill="#764191"></use>
           </svg>
         </div>
       </span>`;
@@ -35,7 +35,7 @@ export function createFeedBack(feedBacks) {
     <div class="swiper modal-product__slider">
       <div class="custom-swiper-button-prev">
         <svg class="swiper-nav-icon" width="24" height="24">
-          <use href="/img/icons/icons.svg#icon-left-arrow-alt"></use>
+          <use href="/icons.svg#icon-left-arrow-alt"></use>
         </svg>
       </div>
       <div class="swiper-wrapper">
@@ -43,10 +43,13 @@ export function createFeedBack(feedBacks) {
       </div>
       <div class="custom-swiper-button-next">
         <svg class="swiper-nav-icon" width="24" height="24">
-          <use href="/img/icons/icons.svg#icon-right-arrow-alt"></use>
+          <use href="/icons.svg#icon-right-arrow-alt"></use>
         </svg>
       </div>
       <div class="swiper-pagination custom-pagination"></div>
+    </div>
+    <div class="btn-container">
+        <button class="feedback-btn" id="leaveFeedbackBtn">Leave feedback</button>
     </div>
   `;
 
@@ -88,8 +91,8 @@ export function createFeedBack(feedBacks) {
         }
       },
     },
-    autoplay: {
-      delay: 5000,
-    },
+    // autoplay: {
+    //   delay: 5000,
+    // },
   });
 }
