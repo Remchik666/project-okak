@@ -18,16 +18,16 @@ function clearList() {
   artistsBlock.innerHTML = '';
 }
 function showLoader() {
-  loader.hidden = false;
+  loader.classList.remove('hidden');
 }
 function hideLoader() {
-  loader.hidden = true;
+  loader.classList.add('hidden');
 }
 function showLoadMoreButton() {
-  moreBtn.hidden = false;
+  moreBtn.classList.remove('hidden');
 }
 function hideLoadMoreButton() {
-  moreBtn.hidden = true;
+  moreBtn.classList.add('hidden');
 }
 
 function createArtistsList(artists) {
