@@ -8,7 +8,34 @@
   }
 }
 
+.footer-logo {
+  width: 116px;
+height: 45px;
+  fill: #764191; 
+ 
+}
 
+.footer-logo--desktop {
+  display: none;
+}
+
+.footer-logo--mobile {
+display: flex;
+  margin-bottom: 32px;
+}
+
+
+@media only screen and (min-width: 768px){
+  .footer-logo--desktop {
+  margin-bottom: 32px;
+  display: flex;
+}
+
+.footer-logo--mobile {
+ 
+  display: none;
+}
+}
 
 
 .footer-top {
@@ -16,7 +43,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 48px;
-  gap: 32px;
+
   
 }
 @media only screen and (min-width: 768px){
@@ -31,6 +58,10 @@
   flex-direction: column;
   align-items: center;
  gap: 32px;
+font-weight: 600;
+font-size: 16px;
+line-height: 150%;
+
 
 }
 @media only screen and (min-width: 768px) {
@@ -39,6 +70,7 @@
     flex-direction: row;
     justify-content: center; 
     flex-wrap: wrap; 
+  
   }
 }
 
@@ -58,36 +90,51 @@
   justify-content: center;
 }
 
-.footer-bottom {
+
+.footer-bottom-list {
   display: flex;
-  flex-direction: column-reverse; 
+  flex-direction: column-reverse;
   align-items: center;
   border-top: 1px solid #333;
   padding-top: 32px;
   gap: 32px;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  text-align: center;
 }
 
-
 @media only screen and (min-width: 768px) {
-  .footer-bottom {
+  .footer-bottom-list {
     flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0px;
+    align-items: center;
+    gap: 0;
   }
 }
 
+.footer-bottom-list li {
+  display: flex;
+  align-items: center;
+}
 
-.footer-bottom p {
+.footer-bottom-list p {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 400;
+    font-family:'IBM Plex Sans', sans-serif;
+  
+    line-height: 150%;
 }
 
 .social-icons {
   display: flex;
+  flex-direction: row;
   gap: 32px;
  
 }
+ 
+
 @media only screen and (min-width: 768px) {
   .social-icons {
     gap: 24px;
@@ -95,24 +142,26 @@
 }
 
 .icon-svg-footer{
- display: inline-block;
   width: 40px;
   height: 40px;
   fill: #ffffff;
-  padding: 2px; 
-  
-}
-
-.footer-logo {
-  width: 116px;
-height: 45px;
-  fill: #ffffff; 
- 
+  display: flex;
 }
 
 
-
-
+@media only screen and (min-width: 768px){
+  .icon-svg-footer{
+    width: 32px;
+    height: 32px
+    ;
+  }
+}
+@media only screen and (min-width: 1440px){
+  .icon-svg-footer{
+    width: 24px;
+    height: 24px;
+  }
+}
 
 
 
