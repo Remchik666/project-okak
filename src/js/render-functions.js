@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
+const iconBaseUrl = `${import.meta.env.BASE_URL}icons.svg`;
+
+>>>>>>> 099525d6f24a6c2e371871e43ba8efebeb48a069
 export function createFeedBack(feedBacks) {
   const feedBackMarkup = feedBacks
     .map(({ _id, name, rating, descr }) => {
