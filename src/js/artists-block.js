@@ -8,7 +8,7 @@ import {
   getArtistIdAlbums,
   getFeedBacks,
   postFeedBack,
-} from './js/soundwave-api';
+} from '../js/soundwave-api';
 
 const artistsBlock = document.querySelector('.artists-block-list');
 const loader = document.querySelector('.loader');
@@ -79,12 +79,7 @@ function escapeHTML(str = '') {
 function truncateText(str, maxLength) {
   if (!str) return '';
   return str.length > maxLength ? str.slice(0, maxLength) + '…' : str;
-  import Swiper from 'swiper/bundle';
-  import 'swiper/css/bundle';
-  const iconBaseUrl = `${import.meta.env.BASE_URL}icons.svg`;
 }
-
-const moreBtn = document.querySelector('.artists-load-more');
 
 let currentPage = 1;
 let loadedArtistsCount = 0;
@@ -160,7 +155,7 @@ function scrollList() {
   if (!card) return;
   const cardHeight = card.getBoundingClientRect().height;
   window.scrollBy({
-    top: cardHeight * 2,
+    top: cardHeight,
     behavior: 'smooth',
   });
 }
