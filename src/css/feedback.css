@@ -77,6 +77,12 @@
   fill: #ffffff;
 }
 
+.custom-swiper-button-prev.disabled,
+.custom-swiper-button-next.disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .custom-swiper-button-prev {
   left: 0;
 }
@@ -124,8 +130,11 @@
   padding: 10px 24px;
   width: 288px;
   height: 47px;
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   background-color: #764191;
-  font-family: 'IBM Plex Sans', sans-serif;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -164,8 +173,13 @@
     font-size: 26px;
   }
 
+  .feedback-btn {
+    width: 158px;
+    padding: 10px 14.5px;
+  }
+
   .swiper-pagination.custom-pagination {
-    width: 704px;   
+    width: 704px;
   }
 
   .swiper::before,
@@ -197,8 +211,13 @@
     scroll-margin-top: 72px;
   }
 
+  .feedback-btn {
+    width: 177px;
+    padding: 10px 24px;
+  }
+
   .swiper-pagination.custom-pagination {
-    width: 1332px;   
+    width: 1332px;
   }
 
   .feedback-descr {
