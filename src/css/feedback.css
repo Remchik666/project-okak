@@ -164,6 +164,10 @@
     font-size: 26px;
   }
 
+  .swiper-pagination.custom-pagination {
+    width: 704px;   
+  }
+
   .swiper::before,
   .swiper::after {
     content: '';
@@ -191,6 +195,10 @@
   .feedback-section {
     padding: 112px 0;
     scroll-margin-top: 72px;
+  }
+
+  .swiper-pagination.custom-pagination {
+    width: 1332px;   
   }
 
   .feedback-descr {
