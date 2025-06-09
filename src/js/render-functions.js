@@ -81,8 +81,10 @@ export function createFeedBack(feedBacks) {
         bullets.forEach(b =>
           b.classList.remove('swiper-pagination-bullet-active')
         );
+
         const activeIndex = swiper.activeIndex;
         const total = swiper.slides.length;
+
         if (activeIndex === 0) {
           bullets[0].classList.add('swiper-pagination-bullet-active');
         } else if (activeIndex === total - 1) {
@@ -90,6 +92,12 @@ export function createFeedBack(feedBacks) {
         } else {
           bullets[1].classList.add('swiper-pagination-bullet-active');
         }
+
+        const prevBtn = document.querySelector('.custom-swiper-button-prev');
+        const nextBtn = document.querySelector('.custom-swiper-button-next');
+
+        prevBtn.classList.toggle('disabled', activeIndex === 0);
+        nextBtn.classList.toggle('disabled', activeIndex === total - 1);
       },
     },
     autoplay: {
