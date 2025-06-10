@@ -1,0 +1,86 @@
+<!-- Кнопка вызова модального окна -->
+<div class="container">
+  <button type="button" id="openModalBtn">Leave feedback</button>
+</div>
+
+<!-- Модальное окно (в шаблоне) -->
+<div class="container">
+  <template id="feedbackModalTemplate">
+    <div class="modal-content">
+      <button type="button" class="close-btn" id="closeModalBtn">
+        <svg class="close-btn-icon" width="14" height="14">
+          <use href="../img/icons/icons.svg#close"></use>
+        </svg>
+      </button>
+
+      <h3>Submit feedback</h3>
+
+      <form id="feedbackForm" action="/submit-feedback" method="post">
+        <div>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Emily"
+            required
+          />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Type your message..."
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="rating"></label>
+          <div class="star-rating">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5">
+              <svg width="24" height="24">
+                <use href="/img/icons/icons.svg#star"></use>
+              </svg>
+            </label>
+
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4">
+              <svg width="24" height="24">
+                <use href="/img/icons/icons.svg#star"></use>
+              </svg>
+            </label>
+
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3">
+              <svg width="24" height="24">
+                <use href="/img/icons/icons.svg#star"></use>
+              </svg>
+            </label>
+
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2">
+              <svg width="24" height="24">
+                <use href="/img/icons/icons.svg#star"></use>
+              </svg>
+            </label>
+
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1">
+              <svg width="24" height="24">
+                <use href="/img/icons/icons.svg#star"></use>
+              </svg>
+            </label>
+          </div>
+
+          <input type="hidden" name="rating" id="ratingValue" value="0" />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </template>
+</div>
