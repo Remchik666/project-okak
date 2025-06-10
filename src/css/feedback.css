@@ -55,6 +55,15 @@
 
 .swiper.modal-product__slider {
   position: relative;
+  height: auto;
+  padding-bottom: 28px;
+}
+
+.swiper-pagination.custom-pagination {
+  width: 288px;
+  height: 28px;
+  position: absolute;
+  transform: translatey(15%);
 }
 
 .custom-swiper-button-prev,
@@ -62,11 +71,16 @@
   display: none;
   width: 48px;
   height: 48px;
-  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   fill: #ffffff;
+}
+
+.custom-swiper-button-prev.disabled,
+.custom-swiper-button-next.disabled {
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .custom-swiper-button-prev {
@@ -86,35 +100,61 @@
   fill: #ffffff;
 }
 
-.swiper-wrapper {
-  margin-bottom: 16px;
-}
-
 .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background-color: #d1d5db;
-  border-radius: 50%;
-  margin: 0 4px;
-  opacity: 1;
   transition: background-color 0.3s ease;
 }
 
 .swiper {
+  --swiper-pagination-bullet-width: 9px;
+  --swiper-pagination-bullet-height: 9px;
   --swiper-pagination-color: #ffffff;
-  --swiper-pagination-bullet-inactive-color: #8b8b8b;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: 4.5px;
+  --swiper-pagination-bullet-inactive-color: #ffffff;
+  --swiper-pagination-bullet-inactive-opacity: 0.2;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.feedback-btn {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 288px;
+  height: 47px;
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background-color: #764191;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feedback-btn:hover {
+  background-color: #5e3272;
 }
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
   .custom-swiper-button-prev,
   .custom-swiper-button-next {
+    display: block;
     position: absolute;
     top: 50%;
     transform: translateY(-98.67px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 8px;
-    padding: 12px;
+    padding: 11px;
     z-index: 10;
   }
 
@@ -131,6 +171,15 @@
   .feedback-descr {
     width: 518px;
     font-size: 26px;
+  }
+
+  .feedback-btn {
+    width: 158px;
+    padding: 10px 14.5px;
+  }
+
+  .swiper-pagination.custom-pagination {
+    width: 704px;
   }
 
   .swiper::before,
@@ -160,6 +209,15 @@
   .feedback-section {
     padding: 112px 0;
     scroll-margin-top: 72px;
+  }
+
+  .feedback-btn {
+    width: 177px;
+    padding: 10px 24px;
+  }
+
+  .swiper-pagination.custom-pagination {
+    width: 1332px;
   }
 
   .feedback-descr {
