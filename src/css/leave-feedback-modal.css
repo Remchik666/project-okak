@@ -1,20 +1,21 @@
-/* закрываем скрол страницы под модалкой */
 body.modal-open {
   overflow: hidden;
+  height: 100vh;
 }
-/* Фон и центрирование модалки */
+
 .modal-content {
   background: var(--color-scheme-1-background);
   padding: 64px 16px 58px 16px;
   border-radius: 8px;
-  max-width: 400px;
-  width: 90vw;
+  width: 320px;
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   position: relative;
   font-family: Arial, sans-serif;
+  min-height: 520px;
+  max-height: 568px;
 }
 
-/* Кнопка закрытия */
 .close-btn {
   position: absolute;
   top: 12px;
@@ -31,7 +32,6 @@ body.modal-open {
   fill: var(--color-white);
 }
 
-/* Заголовок */
 .modal-content h3 {
   font-family: var(--second-family);
 
@@ -47,7 +47,7 @@ body.modal-open {
   flex-direction: column;
   gap: 32px;
 }
-/* Поля формы */
+
 .modal-content label {
   font-family: var(--font-family);
   font-weight: 400;
@@ -75,6 +75,7 @@ body.modal-open {
 }
 .modal-content textarea {
   height: 130px;
+  resize: none;
 }
 .modal-content input[type='text']::placeholder,
 .modal-content textarea::placeholder {
@@ -99,18 +100,17 @@ body.modal-open {
   line-height: 150%;
   color: var(--color-scheme-2-text);
 }
-.was-validated input:invalid,
+.was-validated input[type='text']:invalid,
 .was-validated textarea:invalid {
   border: 1px solid var(--color-error-red);
 }
 
-.was-validated input:invalid::placeholder,
+.was-validated input[type='text']:invalid::placeholder,
 .was-validated textarea:invalid::placeholder {
   color: var(--color-error-red);
+  opacity: 1;
 }
-/* .modal-content input[type='text']:,.modal-content textarea:{} */
 
-/* Кнопка отправки */
 .modal-content button[type='submit'] {
   width: 100%;
   height: 47px;
@@ -136,12 +136,20 @@ body.modal-open {
   background-color: var(--color-affair-dark);
 }
 
-/*  стили звёздочек */
+.message-container {
+  height: 165px;
+}
+
+.rating-container {
+  height: 29px;
+}
+
 .star-rating {
   direction: rtl;
   unicode-bidi: bidi-override;
   display: inline-flex;
   gap: 4px;
+  margin: 0;
 }
 
 .star-rating input[type='radio'] {
@@ -162,4 +170,48 @@ body.modal-open {
 .star-rating label:hover svg,
 .star-rating label:hover ~ label svg {
   fill: var(--color-affair);
+}
+
+@media only screen and (min-width: 768px) {
+  .modal-content {
+    padding: 64px 32px 82px 32px;
+    width: 704px;
+    min-height: auto;
+    max-height: 688px;
+  }
+  .modal-content h3 {
+    font-size: 44px;
+    line-height: 1.2;
+    margin-bottom: 48px;
+  }
+  #feedbackForm {
+    gap: 24px;
+  }
+  .message-container {
+    height: 206px;
+  }
+  .modal-content textarea {
+    height: 180px;
+  }
+  .star-rating label svg {
+    width: 30px;
+    height: 28px;
+  }
+  .modal-content button[type='submit'] {
+    margin: 0 auto;
+    width: 340px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .modal-content {
+    padding: 64px;
+    width: 864px;
+  }
+  .modal-content h3 {
+    font-size: 60px;
+  }
+  .modal-content button[type='submit'] {
+    margin: 0 auto;
+    width: 108px;
+  }
 }
