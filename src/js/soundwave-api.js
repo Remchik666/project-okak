@@ -21,7 +21,7 @@ export async function getGenres() {
 export async function getArtists({
   currentPage = 1,
   name = '',
-  sortName = 'asc',
+  sortName = '',
   genre = '',
 } = {}) {
   try {

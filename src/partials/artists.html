@@ -1,3 +1,73 @@
-<section class="artists-section">
-  <div class="container"></div>
+<section id="artists" class="artists-section">
+  <div class="container">
+    <h2 class="artists-section-title">Artists</h2>
+    <h3 class="artists-title">Explore Your New Favorite Artists</h3>
+
+    <div class="filter-block-wraper">
+      <div class="artists-filter-block">
+        <span class="artists-filter-title">Filters<button class="artists-filter-reset">Reset</button></span>
+
+        <button class="artists-filter-toggle">
+          Search and Filters
+          <svg class="filter-toggle-icon" width="13" height="8">
+            <use href="/icons.svg#filter-arrow-down"></use>
+          </svg>
+        </button>
+        <div class="artists-filter-form">
+          <div class="filter-name-box">
+            <svg class="filter-name-icon" width="19" height="19">
+              <use href="/icons.svg#search"></use>
+            </svg>
+            <input class="filter-name-input" type="text" id="filter-name" name="filter-name" placeholder="Search" />
+          </div>
+          <div class="filter-sorting-box">
+            <button class="filter-sorting-toggle">
+              Sorting
+              <svg class="filter-sorting-icon" width="13" height="8">
+                <use href="/icons.svg#filter-arrow-down"></use>
+              </svg>
+            </button>
+            <div class="filter-sorting-dropbox">
+              <input id="filter-default" class="filter-sorting-input" type="radio" name="sortingGroup" value="" />
+              <label for="filter-default" class="filter-sorting-label">Default</label>
+              <input id="filter-asc" class="filter-sorting-input" type="radio" name="sortingGroup" value="asc" />
+              <label for="filter-asc" class="filter-sorting-label">A-Z</label>
+              <input id="filter-desc" class="filter-sorting-input" type="radio" name="sortingGroup" value="desc" />
+              <label for="filter-desc" class="filter-sorting-label">Z-A</label>
+            </div>
+          </div>
+          <div class="filter-genre-box">
+            <button class="filter-genre-toggle">
+              Genre
+              <svg class="filter-genre-icon" width="13" height="8">
+                <use href="/icons.svg#filter-arrow-down"></use>
+              </svg>
+            </button>
+            <div class="filter-genre-dropbox"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="artists-block-wraper">
+        <div class="artists-silence-block hidden">
+          <svg class="artists-silence-icon" width="40" height="40">
+            <use href="/icons.svg#error-circle"></use>
+          </svg>
+          <h3 class="artists-silence-title">Silence on the stage…</h3>
+          <br class="artists-silence-text">Looks like no artists match your filters.</br>
+          Try changing them or hit “Reset Filters” to bring back the beat.</p>
+          <button class="artists-silence-button">Reset filters</button>
+        </div>
+
+        <div class="artists-block-list"></div>
+      </div>
+    </div>
+    <button class="artists-load-more hidden">
+      Load More
+      <svg class="artists-load-more-icon" width="24" height="24">
+        <use href="/icons.svg#arrow-down"></use>
+      </svg>
+    </button>
+    <span class="loader hidden"></span>
+  </div>
 </section>

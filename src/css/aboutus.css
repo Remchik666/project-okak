@@ -14,12 +14,12 @@ img {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 48;
+  gap: 48px;
   padding: 0px;
 }
 
 .container-text {
-  gap: 20;
+  gap: 20px;
   padding: 0px;
   margin-top: 48px;
 }
@@ -33,7 +33,7 @@ img {
   font-size: 44px;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.01%;
+  letter-spacing: -0.01em;
   text-align: left;
 }
 
@@ -49,10 +49,10 @@ img {
 @media screen and (min-width: 768px) {
   .container-aboutu {
     width: 704px;
-    gap: 32;
+    gap: 32px;
   }
   .container-text {
-    gap: 24;
+    gap: 24px;
     margin-top: 32px;
   }
 
@@ -73,6 +73,7 @@ img {
     flex-direction: row;
     align-items: center;
     width: 1312px;
+    gap: 32px;
   }
 
   .container-text {
@@ -81,7 +82,7 @@ img {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 24;
+    gap: 24px;
     margin-left: 32px;
   }
   .heading-aboutu {
