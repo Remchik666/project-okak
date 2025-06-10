@@ -41,9 +41,9 @@ function createArtistsList(artists) {
       ${createGenresList(genres)}
       <h5 class="artist-name">${escapeHTML(strArtist)}</h5>
       <p class="artist-description">${truncateText(escapeHTML(strBiographyEN), 200)}</p>
-      <a class="artist-learn-link">Learn More
+      <a class="artist-learn-link" data-id="${_id}">Learn More
         <svg class="artist-link-icon" width="24" height="24">
-          <use href="./icons.svg#arrow-right" data-id="${_id}"></use>
+          <use href="./icons.svg#arrow-right"></use>
         </svg>
       </a>
     </div>`
