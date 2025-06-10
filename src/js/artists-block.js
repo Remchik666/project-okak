@@ -36,14 +36,14 @@ function hideLoadMoreButton() {
 
 function createArtistsList(artists) {
   const markup = artists.map(({ _id, strArtist, strBiographyEN, strArtistThumb, genres }) =>
-    `<div class="artist-block" data-id="${_id}">
+    `<div class="artist-block">
       <img class="artist-img" src="${strArtistThumb || imgNotFound}" alt="${strArtist}" loading="lazy" onerror="this.onerror=null; this.src='${imgNotFound}';">
       ${createGenresList(genres)}
       <h5 class="artist-name">${escapeHTML(strArtist)}</h5>
       <p class="artist-description">${truncateText(escapeHTML(strBiographyEN), 200)}</p>
       <a class="artist-learn-link">Learn More
         <svg class="artist-link-icon" width="24" height="24">
-          <use href="./icons.svg#arrow-right"></use>
+          <use href="./icons.svg#arrow-right" data-id="${_id}"></use>
         </svg>
       </a>
     </div>`
