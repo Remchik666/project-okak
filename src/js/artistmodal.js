@@ -1,4 +1,32 @@
-export function openArtistModal(artist) {
+import { getArtistId, getArtistIdAlbums } from './soundwave-api';
+
+const artistsBlock = document.querySelector('.artists-block-list');
+artistsBlock.addEventListener('click', handleLearnMoreArtist);
+async function handleLearnMoreArtist(e) {
+  if (e.target.className !== 'artist-learn-link') {
+    return;
+  }
+  const id = e.target.dataset.id;
+  const artistInfo = await getArtistId(id);
+  const artistAlbumInfo = await getArtistIdAlbums(id);
+
+  const genres = e.target.parentElement.children[1].innerHTML;
+
+  renderGenres(genres);
+  openArtistModal(artistInfo);
+  renderAlbums(artistAlbumInfo.albumsList);
+}
+export function openArtistModal({
+  intDiedYear,
+  intFormedYear,
+  intMembers,
+  strGender,
+  strArtist,
+  strArtistThumb,
+  strBiographyEN,
+  strCountry,
+}) {
+  //   genres
   const modal = document.querySelector('.artist-modal-backdrop');
   const closeBtn = document.querySelector('.modal-close-btn');
   const backdrop = document.querySelector('.artist-modal-backdrop');
@@ -21,17 +49,17 @@ export function openArtistModal(artist) {
   setTimeout(() => {
     loader.classList.add('is-hidden');
 
-    document.querySelector('.artist-name').textContent = artist.name;
-    document.querySelector('.artist-image').src = artist.image;
-    document.querySelector('.years-active').textContent = formatYears(artist.years);
-    document.querySelector('.sex').textContent = artist.sex || '—';
-    document.querySelector('.members').textContent = artist.members || '—';
-    document.querySelector('.country').textContent = artist.country || '—';
-    document.querySelector('.bio-text').textContent = artist.bio || '—';
-
-    renderGenres(artist.genres);
-    renderAlbums(artist.albums);
-  }, 500); 
+    document.querySelector('.artist-name-modal').textContent = strArtist;
+    document.querySelector('.artist-image').src = strArtistThumb;
+    document.querySelector('.years-active').textContent = formatYears(
+      intFormedYear,
+      intDiedYear
+    );
+    document.querySelector('.sex').textContent = strGender || '—';
+    document.querySelector('.members').textContent = intMembers || '—';
+    document.querySelector('.country').textContent = strCountry || '—';
+    document.querySelector('.bio-text').textContent = strBiographyEN || '—';
+  }, 500);
 
   function closeModal() {
     modal.classList.add('is-hidden');
@@ -63,25 +91,20 @@ export function openArtistModal(artist) {
     document.querySelector('.members').textContent = '';
     document.querySelector('.country').textContent = '';
     document.querySelector('.bio-text').textContent = '';
-    document.querySelector('.genres-list').innerHTML = '';
+    document.querySelector('.genres-list-modal').innerHTML = '';
     document.querySelector('.artist-albums').innerHTML = '';
   }
 }
 
-function formatYears({ start, end }) {
+function formatYears(start, end) {
   if (!start && !end) return 'information missing';
   if (start && !end) return `${start}–present`;
   return `${start}–${end}`;
 }
 
 function renderGenres(genres) {
-  const list = document.querySelector('.genres-list');
-  list.innerHTML = '';
-  genres.forEach(g => {
-    const li = document.createElement('li');
-    li.textContent = g;
-    list.appendChild(li);
-  });
+  const list = document.querySelector('.genres-list-modal');
+  list.innerHTML = genres;
 }
 
 function renderAlbums(albums) {
@@ -92,7 +115,7 @@ function renderAlbums(albums) {
     const section = document.createElement('div');
     section.className = 'album';
     section.innerHTML = `
-      <h4 class="album-title">${album.title}</h4>
+      <h4 class="album-title">${album.strAlbum}</h4>
       <div class="album-table">
         <div class="album-header">
           <span>Track</span>
@@ -100,17 +123,31 @@ function renderAlbums(albums) {
           <span>Link</span>
         </div>
         <ul class="track-list">
-          ${album.tracks.map(track => `
+          ${album.tracks
+            .map(track => {
+              const minutes = Math.floor(track.intDuration / 60000);
+              const seconds = Math.floor((track.intDuration % 60000) / 1000)
+                .toString()
+                .padStart(2, '0');
+              return `
             <li>
-              <span>${track.title}</span>
-              <span>${track.time}</span>
-              <a href="${track.youtube}" target="_blank" rel="noopener noreferrer">
-                <svg  width="20" height="14">
-                  <use href="/img/icons/icons.svg#icon-Youtube"></use>
-                </svg>
+              <span>${track.strTrack}</span>
+              <span>${minutes}:${seconds}</span>
+              <a href="${
+                track.movie
+              }" target="_blank" rel="noopener noreferrer">
+                ${
+                  track.movie
+                    ? `+<svg class="track-link-youtube" width="24" height="24">
+            <use href="./icons.svg#icon-youtube"></use>
+          </svg>`
+                    : ''
+                }
               </a>
             </li>
-          `).join('')}
+          `;
+            })
+            .join('')}
         </ul>
       </div>
     `;
