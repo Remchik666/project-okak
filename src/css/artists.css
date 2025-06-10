@@ -101,6 +101,7 @@
 }
 .artist-learn-link {
   font-family: var(--font-family);
+  cursor: pointer;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.5;

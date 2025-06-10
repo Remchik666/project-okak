@@ -3,6 +3,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 import { getGenres, getArtists } from '../js/soundwave-api';
 
+import imgNotFound from '/img/no-image.jpg';
+
 const artistsBlock = document.querySelector('.artists-block-list');
 const loader = document.querySelector('.loader');
 const moreBtn = document.querySelector('.artists-load-more');
@@ -35,13 +37,11 @@ function hideLoadMoreButton() {
 function createArtistsList(artists) {
   const markup = artists.map(({ _id, strArtist, strBiographyEN, strArtistThumb, genres }) =>
     `<div class="artist-block" data-id="${_id}">
-      <a class="artist-link" href="#" aria-label="Go to artist ${escapeHTML(strArtist)}">
-        <img class="artist-img" src="${strArtistThumb || './img/no-image.jpg'}" alt="${strArtist}" loading="lazy" onerror="this.onerror=null; this.src='./img/no-image.jpg';">
-      </a>
+      <img class="artist-img" src="${strArtistThumb || imgNotFound}" alt="${strArtist}" loading="lazy" onerror="this.onerror=null; this.src='${imgNotFound}';">
       ${createGenresList(genres)}
       <h5 class="artist-name">${escapeHTML(strArtist)}</h5>
       <p class="artist-description">${truncateText(escapeHTML(strBiographyEN), 200)}</p>
-      <a class="artist-learn-link" href="#">Learn More
+      <a class="artist-learn-link">Learn More
         <svg class="artist-link-icon" width="24" height="24">
           <use href="./icons.svg#arrow-right"></use>
         </svg>
