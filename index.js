@@ -38,9 +38,9 @@ import{a as k,i as d,S as U,e as x,d as _}from"./assets/vendor-2Hd5OlEu.js";(fun
       ${se(i)}
       <h5 class="artist-name">${c(o)}</h5>
       <p class="artist-description">${ne(c(s),200)}</p>
-      <a class="artist-learn-link">Learn More
+      <a class="artist-learn-link" data-id="${n}">Learn More
         <svg class="artist-link-icon" width="24" height="24">
-          <use href="./icons.svg#arrow-right" data-id="${n}"></use>
+          <use href="./icons.svg#arrow-right"></use>
         </svg>
       </a>
     </div>`).join("");j.insertAdjacentHTML("beforeend",t)}function se(e=[]){return!Array.isArray(e)||e.length===0?"":`<ul class="artist-genres-list">${e.map(n=>`<li class="artist-genres-item">${c(n)}</li>`).join("")}</ul>`}function c(e=""){return e.replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[t])}function ne(e,t){return e?e.length>t?e.slice(0,t)+"…":e:""}function re(){const e=document.querySelector(".artist-block");if(!e)return;const t=e.getBoundingClientRect().height;window.scrollBy({top:t,behavior:"smooth"})}const oe=document.querySelector(".filter-genre-dropbox");function ie(e){const t=e.map(({genre:n})=>`<input id="genre-${c(n)}" class="filter-genre-input" type="radio" name="genreGroup" value="${c(n)}" />
