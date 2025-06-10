@@ -169,10 +169,9 @@
   display: flex;
   margin-left: 32px;
 }
-.footer-bottom-list li a:first-child .icon-svg-footer {
+.footer-bottom-list li:last-child .icon-svg-footer {
   margin-left: 0;
 }
-
 @media only screen and (min-width: 768px) {
   .icon-svg-footer {
     width: 32px;
