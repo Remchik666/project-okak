@@ -1,3 +1,8 @@
+img {
+  width: 100%;
+  height: auto;
+}
+
 .artist-img {
   border-radius: 16px;
 }
@@ -43,10 +48,6 @@
 
 @media screen and (min-width: 768px) {
   .container-aboutu {
-    max-width: 767px;
-  }
-
-  .container-aboutu {
     width: 704px;
     gap: 32px;
   }
@@ -68,10 +69,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .container-aboutu {
-    max-width: 1439px;
-    display: flex;
-  }
   .container-aboutu {
     flex-direction: row;
     align-items: center;
