@@ -1,0 +1,217 @@
+body.modal-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.modal-content {
+  background: var(--color-scheme-1-background);
+  padding: 64px 16px 58px 16px;
+  border-radius: 8px;
+  width: 320px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  font-family: Arial, sans-serif;
+  min-height: 520px;
+  max-height: 568px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.close-btn-icon {
+  fill: var(--color-white);
+}
+
+.modal-content h3 {
+  font-family: var(--second-family);
+
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--color-scheme-1-text);
+}
+
+#feedbackForm {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.modal-content label {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-scheme-1-text);
+  margin-bottom: 8px;
+}
+
+.modal-content input[type='text'],
+.modal-content textarea {
+  border: 1px solid var(--opacity-white-20);
+  border-radius: 12px;
+  padding: 8px 12px;
+  width: 288px;
+  height: 43px;
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-white);
+}
+.modal-content textarea {
+  height: 130px;
+  resize: none;
+}
+.modal-content input[type='text']::placeholder,
+.modal-content textarea::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--opacity-white-60);
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.modal-content input[type='text']:focus::placeholder,
+.modal-content textarea:focus::placeholder {
+  opacity: 0;
+}
+
+.modal-content input[type='text']:hover::placeholder,
+.modal-content textarea:hover::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-scheme-2-text);
+}
+.was-validated input[type='text']:invalid,
+.was-validated textarea:invalid {
+  border: 1px solid var(--color-error-red);
+}
+
+.was-validated input[type='text']:invalid::placeholder,
+.was-validated textarea:invalid::placeholder {
+  color: var(--color-error-red);
+  opacity: 1;
+}
+
+.modal-content button[type='submit'] {
+  width: 100%;
+  height: 47px;
+  border-radius: 12px;
+  padding: 10px 24px;
+
+  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+  background-color: var(--color-affair);
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+
+  color: var(--color-white);
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button[type='submit']:hover {
+  background-color: var(--color-affair-dark);
+}
+
+.message-container {
+  height: 165px;
+}
+
+.rating-container {
+  height: 29px;
+}
+
+.star-rating {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  display: inline-flex;
+  gap: 4px;
+  margin: 0;
+}
+
+.star-rating input[type='radio'] {
+  display: none;
+}
+
+.star-rating label {
+  cursor: pointer;
+  fill: var(--color-scheme-1-text);
+  transition: fill 0.3s ease;
+}
+
+.star-rating label svg {
+  transition: fill 0.3s ease;
+}
+
+.star-rating input[type='radio']:checked ~ label svg,
+.star-rating label:hover svg,
+.star-rating label:hover ~ label svg {
+  fill: var(--color-affair);
+}
+
+@media only screen and (min-width: 768px) {
+  .modal-content {
+    padding: 64px 32px 82px 32px;
+    width: 704px;
+    min-height: auto;
+    max-height: 688px;
+  }
+  .modal-content h3 {
+    font-size: 44px;
+    line-height: 1.2;
+    margin-bottom: 48px;
+  }
+  #feedbackForm {
+    gap: 24px;
+  }
+  .message-container {
+    height: 206px;
+  }
+  .modal-content textarea {
+    height: 180px;
+  }
+  .star-rating label svg {
+    width: 30px;
+    height: 28px;
+  }
+  .modal-content button[type='submit'] {
+    margin: 0 auto;
+    width: 340px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .modal-content {
+    padding: 64px;
+    width: 864px;
+  }
+  .modal-content h3 {
+    font-size: 60px;
+  }
+  .modal-content button[type='submit'] {
+    margin: 0 auto;
+    width: 108px;
+  }
+}

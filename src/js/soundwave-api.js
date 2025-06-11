@@ -110,6 +110,7 @@ export async function postFeedBack(name, rating, descr) {
       descr: descr,
     };
     const res = await axios.post(url, data);
+    console.log(data);
     return res.data;
   } catch (e) {
     iziToast.error({
@@ -141,13 +142,13 @@ export async function postFeedBack(name, rating, descr) {
 //   const artistIdAlbums = await getArtistIdAlbums('65ada227af9f6d155db46908');
 //   console.log('artistIdAlbums ', artistIdAlbums);
 
-//   // //пост
-//   // const post = await postFeedBack(
-//   //   'Jhonny Depp',
-//   //   4.5,
-//   //   'Some text with user`s comment about application'
-//   // );
-//   // console.log(post);
+//пост
+// const post = await postFeedBack(
+//   'Jhonny Depp',
+//   4.5,
+//   'Some text with user`s comment about application'
+// );
+// console.log(post);
 // }
 // initMainPage();
 // // розкоментувати для прикладу
