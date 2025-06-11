@@ -37,7 +37,7 @@ import{a as y,i as l,S as D,e as x,d as z,b as J}from"./assets/vendor-CFlek-mx.j
       <li class="modal-track-item">
         <span class="track-name">${o.strTrack}</span>
         <span class="track-time">${s}:${r}</span>
-        <a class="track-link" target="_blank" href="${o.movie}">${o.movie?`<svg class="track-link-youtube">
+        <a class="track-link" target="_blank" rel="noopener noreferrer" href="${o.movie}">${o.movie?`<svg class="track-link-youtube">
             <use href="${ae}#youtube"></use>
           </svg>`:""}</a>
       </li>
