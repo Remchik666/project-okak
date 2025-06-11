@@ -1,12 +1,16 @@
 import { getArtistId, getArtistIdAlbums } from './soundwave-api';
 import spriteUrl from '/public/icons.svg';
 const artistsBlock = document.querySelector('.artists-block-list');
+const modalAlbums = document.querySelector('.modal-albums');
+const modalBiography = document.querySelector('.modal-biography');
+
 artistsBlock.addEventListener('click', handleLearnMoreArtist);
 async function handleLearnMoreArtist(e) {
   if (e.target.className !== 'artist-learn-link') {
     return;
   }
   const id = e.target.dataset.id;
+
   const genres = e.target.parentElement.children[1].innerHTML;
   openArtistModal(id, genres);
 }
@@ -17,6 +21,7 @@ async function openArtistModal(id, genres) {
   const loader = document.querySelector('.modal-loader');
 
   // Показати модалку і лоадер
+
   modal.classList.remove('is-hidden');
   loader.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
@@ -29,6 +34,8 @@ async function openArtistModal(id, genres) {
   const artistInfo = await getArtistId(id);
   const artistAlbumInfo = await getArtistIdAlbums(id);
   loader.classList.add('is-hidden');
+  modalAlbums.innerHTML = '';
+  modalBiography.innerHTML = '';
   createModalBiography(artistInfo, genres);
   renderAlbums(artistAlbumInfo.albumsList);
 
@@ -41,21 +48,21 @@ async function openArtistModal(id, genres) {
     backdrop.removeEventListener('click', handleBackdropClick);
     document.removeEventListener('keydown', handleEscKey);
   }
-}
-function handleBackdropClick(e) {
-  if (e.target === e.currentTarget) {
-    closeModal();
+
+  function handleBackdropClick(e) {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  }
+
+  function handleEscKey(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
   }
 }
-
-function handleEscKey(e) {
-  if (e.key === 'Escape') {
-    closeModal();
-  }
-}
-
 function renderAlbums(albums) {
-  document.querySelector('.modal-albums').innerHTML = albums
+  modalAlbums.innerHTML = albums
     .map(album => renderAlbumMarkup(album))
     .join('');
 }
@@ -134,5 +141,5 @@ function createModalBiography(
         <p class="modal-biography___biography">Biography</br> <span>${strBiographyEN}</span></p>
         <ul class="modal-biography__genre-list">${genres}</ul>
         </div></div>`;
-  document.querySelector('.modal-biography').innerHTML = markup;
+  modalBiography.innerHTML = markup;
 }

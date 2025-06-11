@@ -6,7 +6,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
-  overflow-y: auto;
+  display: flex;
   padding: 16px;
 
 }
@@ -17,15 +17,15 @@
   border-radius: 16px;
   padding: 52px 8px;
   width: 290px;
-  overflow: auto;
+
   background: #060307;
-  position: absolute;
+  position: relative;
 
   left: 50%;
   transform: translateX(-50%);
 
   border: #060307 1px solid;
-
+  overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: #e0e0e0 #060307;
   scroll-behavior: smooth;
@@ -113,6 +113,10 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e0e0e0 #060307;
+  scroll-behavior: smooth;
 }
 
 
@@ -310,10 +314,7 @@
 
   .modal-biography___biography {
     -webkit-line-clamp: 5;
-    overflow: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #e0e0e0 #060307;
-    scroll-behavior: smooth;
+
   }
 
   .modal__content {
