@@ -1,5 +1,5 @@
 import { getArtistId, getArtistIdAlbums } from './soundwave-api';
-
+import spriteUrl from '/public/icons.svg';
 const artistsBlock = document.querySelector('.artists-block-list');
 artistsBlock.addEventListener('click', handleLearnMoreArtist);
 async function handleLearnMoreArtist(e) {
@@ -7,26 +7,10 @@ async function handleLearnMoreArtist(e) {
     return;
   }
   const id = e.target.dataset.id;
-  const artistInfo = await getArtistId(id);
-  const artistAlbumInfo = await getArtistIdAlbums(id);
-
   const genres = e.target.parentElement.children[1].innerHTML;
-
-  renderGenres(genres);
-  openArtistModal(artistInfo);
-  renderAlbums(artistAlbumInfo.albumsList);
+  openArtistModal(id, genres);
 }
-export function openArtistModal({
-  intDiedYear,
-  intFormedYear,
-  intMembers,
-  strGender,
-  strArtist,
-  strArtistThumb,
-  strBiographyEN,
-  strCountry,
-}) {
-  //   genres
+async function openArtistModal(id, genres) {
   const modal = document.querySelector('.artist-modal-backdrop');
   const closeBtn = document.querySelector('.modal-close-btn');
   const backdrop = document.querySelector('.artist-modal-backdrop');
@@ -37,29 +21,16 @@ export function openArtistModal({
   loader.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
 
-  // Очистити попередні дані
-  clearModalContent();
-
   // Додаємо слухачі
   closeBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', handleBackdropClick);
   document.addEventListener('keydown', handleEscKey);
 
-  // Заповнити дані після імітації завантаження
-  setTimeout(() => {
-    loader.classList.add('is-hidden');
-
-    document.querySelector('.artist-name-modal').textContent = strArtist;
-    document.querySelector('.artist-image').src = strArtistThumb;
-    document.querySelector('.years-active').textContent = formatYears(
-      intFormedYear,
-      intDiedYear
-    );
-    document.querySelector('.sex').textContent = strGender || '—';
-    document.querySelector('.members').textContent = intMembers || '—';
-    document.querySelector('.country').textContent = strCountry || '—';
-    document.querySelector('.bio-text').textContent = strBiographyEN || '—';
-  }, 500);
+  const artistInfo = await getArtistId(id);
+  const artistAlbumInfo = await getArtistIdAlbums(id);
+  loader.classList.add('is-hidden');
+  createModalBiography(artistInfo, genres);
+  renderAlbums(artistAlbumInfo.albumsList);
 
   function closeModal() {
     modal.classList.add('is-hidden');
@@ -70,87 +41,98 @@ export function openArtistModal({
     backdrop.removeEventListener('click', handleBackdropClick);
     document.removeEventListener('keydown', handleEscKey);
   }
-
-  function handleBackdropClick(e) {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
-  }
-
-  function handleEscKey(e) {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
-  }
-
-  function clearModalContent() {
-    document.querySelector('.artist-name').textContent = '';
-    document.querySelector('.artist-image').src = '';
-    document.querySelector('.years-active').textContent = '';
-    document.querySelector('.sex').textContent = '';
-    document.querySelector('.members').textContent = '';
-    document.querySelector('.country').textContent = '';
-    document.querySelector('.bio-text').textContent = '';
-    document.querySelector('.genres-list-modal').innerHTML = '';
-    document.querySelector('.artist-albums').innerHTML = '';
+}
+function handleBackdropClick(e) {
+  if (e.target === e.currentTarget) {
+    closeModal();
   }
 }
 
-function formatYears(start, end) {
-  if (!start && !end) return 'information missing';
-  if (start && !end) return `${start}–present`;
-  return `${start}–${end}`;
-}
-
-function renderGenres(genres) {
-  const list = document.querySelector('.genres-list-modal');
-  list.innerHTML = genres;
+function handleEscKey(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
 }
 
 function renderAlbums(albums) {
-  const container = document.querySelector('.artist-albums');
-  container.innerHTML = '<h3>Albums</h3>';
-
-  albums.forEach(album => {
-    const section = document.createElement('div');
-    section.className = 'album';
-    section.innerHTML = `
-      <h4 class="album-title">${album.strAlbum}</h4>
-      <div class="album-table">
-        <div class="album-header">
-          <span>Track</span>
-          <span>Time</span>
-          <span>Link</span>
-        </div>
-        <ul class="track-list">
-          ${album.tracks
-            .map(track => {
-              const minutes = Math.floor(track.intDuration / 60000);
-              const seconds = Math.floor((track.intDuration % 60000) / 1000)
-                .toString()
-                .padStart(2, '0');
-              return `
-            <li>
-              <span>${track.strTrack}</span>
-              <span>${minutes}:${seconds}</span>
-              <a href="${
-                track.movie
-              }" target="_blank" rel="noopener noreferrer">
-                ${
-                  track.movie
-                    ? `+<svg class="track-link-youtube" width="24" height="24">
-            <use href="./icons.svg#icon-youtube"></use>
+  document.querySelector('.modal-albums').innerHTML = albums
+    .map(album => renderAlbumMarkup(album))
+    .join('');
+}
+function renderAlbumMarkup(album) {
+  const tracksMarkup = album.tracks
+    .map(track => {
+      const minutes = Math.floor(track.intDuration / 60000);
+      const seconds = Math.floor((track.intDuration % 60000) / 1000)
+        .toString()
+        .padStart(2, '0');
+      return `
+      <li class="modal-track-item">
+        <span class="track-name">${track.strTrack}</span>
+        <span class="track-time">${minutes}:${seconds}</span>
+        <a class="track-link" target="_blank" href="${track.movie}">${
+        track.movie
+          ? `<svg class="track-link-youtube">
+            <use href="${spriteUrl}#youtube"></use>
           </svg>`
-                    : ''
-                }
-              </a>
-            </li>
-          `;
-            })
-            .join('')}
-        </ul>
-      </div>
+          : ''
+      }</a>
+      </li>
     `;
-    container.appendChild(section);
-  });
+    })
+    .join('');
+
+  const markup = `
+    <li class="modal-album-item">
+      <h3 class="modal-album-title">${album.strAlbum}</h3>
+      <ul class="modal-track-list">
+            <li class="modal-track-item">
+        <p class="modal-track-name-title track-name">Track</p>
+        <p class="modal-track-time-title track-time">Time</p>
+        <p class="modal-track-link-title track-link">Link</p>
+      </li>
+            ${tracksMarkup}
+      </ul>
+    </li>
+  `;
+
+  return markup;
+}
+
+function createModalBiography(
+  {
+    intDiedYear,
+    intFormedYear,
+    intMembers,
+    strGender,
+    strArtist,
+    strArtistThumb,
+    strBiographyEN,
+    strCountry,
+  },
+  genres
+) {
+  const markupYears =
+    intFormedYear || intDiedYear
+      ? `      ${intFormedYear ?? 'last'}-${intDiedYear ?? 'present'}`
+      : 'information missing';
+
+  const markup = `
+   <p class="modal-biography__title">${strArtist}</p>
+   <div class="modal-bbiography-desktop">     
+   <img class="modal-biography__photo" src="${strArtistThumb}" alt="${strArtist}" />
+        <div class="modal-biography__info">
+        <div class="modal-biography___content">
+        <p class="modal-biography___years">Years active</br> <span>
+        
+        ${markupYears}
+     </span></p>
+        <p class="modal-biography___sex">Sex</br> <span>${strGender}</span></p>
+        <p class="modal-biography___members">Members</br> <span>${intMembers}</span></p>
+        <p class="modal-biography___country">Country</br> <span>${strCountry}</span></p>
+        </div>
+        <p class="modal-biography___biography">Biography</br> <span>${strBiographyEN}</span></p>
+        <ul class="modal-biography__genre-list">${genres}</ul>
+        </div></div>`;
+  document.querySelector('.modal-biography').innerHTML = markup;
 }

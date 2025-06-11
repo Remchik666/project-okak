@@ -2,68 +2,15 @@
   <div class="artist-modal" role="dialog" aria-modal="true">
     <button class="modal-close-btn" aria-label="Close modal">
       <svg class="icon-close" width="14" height="14">
-        <use href="../img/icons/icons.svg#icon-Close"></use>
+        <use href="/public/icons.svg#close"></use>
       </svg>
     </button>
     <div class="modal-loader is-hidden"></div>
 
-    <div class="artist-header">
-      <img class="artist-image" src="" alt="Artist Image" />
-      <h2 class="artist-name-modal">Artist Name</h2>
-    </div>
-
-    <ul class="artist-info">
-      <li>
-        <strong>Years active:</strong>
-        <span class="years-active">2010–present</span>
-      </li>
-      <li><strong>Sex:</strong> <span class="sex">Male</span></li>
-      <li><strong>Members:</strong> <span class="members">3</span></li>
-      <li><strong>Country:</strong> <span class="country">USA</span></li>
-    </ul>
-
-    <div class="artist-bio">
-      <h3>Biography</h3>
-      <p class="bio-text">Artist biography goes here...</p>
-    </div>
-
-    <div class="artist-genres">
-      <h3>Genres</h3>
-      <ul class="genres-list-modal">
-        <li>Rock</li>
-        <li>Pop</li>
-        <li>Indie</li>
-      </ul>
-    </div>
-
-    <div class="artist-albums">
-      <h3>Albums</h3>
-
-      <div class="album">
-        <h4 class="album-title">Album Title</h4>
-        <div class="album-table">
-          <div class="album-header">
-            <span>Track</span>
-            <span>Time</span>
-            <span>Link</span>
-          </div>
-          <ul class="track-list">
-            <li>
-              <span>Track Name</span>
-              <span>3:02</span>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg width="20" height="14">
-                  <use href=""></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="modal-artist">
+      <div class="modal-biography"></div>
+      <p class="modal-albums-title">Albums</p>
+      <ul class="modal-albums"></ul>
     </div>
   </div>
 </div>
