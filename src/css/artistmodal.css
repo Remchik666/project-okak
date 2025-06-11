@@ -1,0 +1,341 @@
+.artist-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  padding: 16px;
+
+}
+
+.artist-modal {
+  margin-top: 64px;
+  margin-bottom: 64px;
+  border-radius: 16px;
+  padding: 52px 8px;
+  width: 290px;
+
+  background: #060307;
+  position: relative;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  border: #060307 1px solid;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e0e0e0 #060307;
+  scroll-behavior: smooth;
+}
+
+.modal-close-btn {
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.modal-close-btn svg {
+  fill: #fff;
+  width: 14px;
+  height: 14px;
+}
+
+.modal-loader {
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #999;
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.modal-biography {
+  margin-bottom: 16px;
+}
+
+.modal-biography__title {
+  font-family: "Epilogue", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.modal-biography__photo {
+  width: 272px;
+  height: 167px;
+  object-fit: cover;
+  object-position: top;
+  margin-bottom: 32px;
+  border-radius: 16px;
+}
+
+.modal-biography___content {
+  margin-bottom: 16px;
+}
+
+
+.modal-biography___years,
+.modal-biography___sex,
+.modal-biography___members,
+.modal-biography___country,
+.modal-biography___biography {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.modal-biography___biography {
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e0e0e0 #060307;
+  scroll-behavior: smooth;
+}
+
+
+
+
+.modal-biography___years span,
+.modal-biography___sex span,
+.modal-biography___members span,
+.modal-biography___country span,
+.modal-biography___biography span {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+}
+
+.modal-biography__genre-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.album {
+  margin-top: 16px;
+}
+
+.album-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+
+.track-list {
+  list-style: none;
+  padding: 0;
+}
+
+.track-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #444;
+}
+
+.modal-albums-title {
+  font-family: "Epilogue", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.modal-albums {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.modal-album-item {
+  border-radius: 16px;
+  padding: 14px 11px;
+  width: 272px;
+  background: #1e1c1f;
+}
+
+.modal-album-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+
+
+.modal-track-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0px 8px 12px;
+
+}
+
+.modal-track-item:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+
+
+.modal-track-item .track-name {
+  flex: 2;
+  text-align: left;
+
+  padding-right: 10px;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.track-link-youtube {
+  fill: #fff;
+  width: 24px;
+  height: 24px;
+}
+
+.modal-track-item .track-time {
+  flex: 1;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.modal-track-item .track-link {
+  flex: 0 0 40px;
+  height: 24px;
+  text-align: center;
+}
+
+.modal-track-name-title.track-name,
+.modal-track-time-title.track-time,
+.modal-track-link-title.track-link {
+  font-weight: 600;
+  font-size: 8px;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+  .artist-modal {
+    margin-top: 64px;
+    margin-bottom: 64px;
+    padding: 64px 24px;
+    width: 706px;
+  }
+
+  .modal-biography {
+    margin-bottom: 48px;
+  }
+
+  .modal-biography__title {
+
+    font-size: 32px;
+
+    margin-bottom: 48px;
+  }
+
+  .modal-biography__photo {
+    width: 654px;
+    height: 402px;
+  }
+
+  .modal-biography___content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .modal-biography___years,
+  .modal-biography___sex,
+  .modal-biography___members,
+  .modal-biography___country {
+    width: 146px;
+    margin: 0;
+
+
+  }
+
+  .modal-biography___sex,
+  .modal-biography___country {
+    width: 400px;
+  }
+
+
+  .modal-album-item {
+    width: 307px;
+  }
+
+}
+
+@media only screen and (min-width: 1440px) {
+  .artist-modal {
+    margin-top: 64px;
+    margin-bottom: 64px;
+    padding: 64px;
+    gap: 32px;
+    width: 1314px;
+  }
+
+  .modal-bbiography-desktop {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+  }
+
+  .modal-biography___biography {
+    -webkit-line-clamp: 5;
+
+  }
+
+  .modal__content {
+    margin-top: 64px;
+    margin-bottom: 64px;
+    padding: 64px;
+    gap: 32px;
+    width: 1314px;
+  }
+
+  .modal-album-item {
+    width: 269px;
+  }
+
+  .modal-biography__photo {
+    flex: 1;
+    height: 354px;
+    margin: 0;
+  }
+
+  .modal-biography__info {
+    flex: 1;
+  }
+}
