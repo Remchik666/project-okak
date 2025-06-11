@@ -5,7 +5,9 @@
 
     <div class="filter-block-wraper">
       <div class="artists-filter-block">
-        <span class="artists-filter-title">Filters<button class="artists-filter-reset">Reset</button></span>
+        <span class="artists-filter-title"
+          >Filters<button class="artists-filter-reset">Reset</button></span
+        >
 
         <button class="artists-filter-toggle">
           Search and Filters
@@ -18,7 +20,13 @@
             <svg class="filter-name-icon" width="19" height="19">
               <use href="/icons.svg#search"></use>
             </svg>
-            <input class="filter-name-input" type="text" id="filter-name" name="filter-name" placeholder="Search" />
+            <input
+              class="filter-name-input"
+              type="text"
+              id="filter-name"
+              name="filter-name"
+              placeholder="Search"
+            />
           </div>
           <div class="filter-sorting-box">
             <button class="filter-sorting-toggle">
@@ -28,11 +36,31 @@
               </svg>
             </button>
             <div class="filter-sorting-dropbox">
-              <input id="filter-default" class="filter-sorting-input" type="radio" name="sortingGroup" value="" />
-              <label for="filter-default" class="filter-sorting-label">Default</label>
-              <input id="filter-asc" class="filter-sorting-input" type="radio" name="sortingGroup" value="asc" />
+              <input
+                id="filter-default"
+                class="filter-sorting-input"
+                type="radio"
+                name="sortingGroup"
+                value=""
+              />
+              <label for="filter-default" class="filter-sorting-label"
+                >Default</label
+              >
+              <input
+                id="filter-asc"
+                class="filter-sorting-input"
+                type="radio"
+                name="sortingGroup"
+                value="asc"
+              />
               <label for="filter-asc" class="filter-sorting-label">A-Z</label>
-              <input id="filter-desc" class="filter-sorting-input" type="radio" name="sortingGroup" value="desc" />
+              <input
+                id="filter-desc"
+                class="filter-sorting-input"
+                type="radio"
+                name="sortingGroup"
+                value="desc"
+              />
               <label for="filter-desc" class="filter-sorting-label">Z-A</label>
             </div>
           </div>
@@ -54,8 +82,10 @@
             <use href="/icons.svg#error-circle"></use>
           </svg>
           <h3 class="artists-silence-title">Silence on the stage…</h3>
-          <br class="artists-silence-text">Looks like no artists match your filters.</br>
-          Try changing them or hit “Reset Filters” to bring back the beat.</p>
+          <p class="artists-silence-text">
+            Looks like no artists match your filters.<br />
+            Try changing them or hit “Reset Filters” to bring back the beat.
+          </p>
           <button class="artists-silence-button">Reset filters</button>
         </div>
 
