@@ -7,3 +7,4 @@ import './js/mob-menu.js';
 import './js/artistmodal.js';
 import './js/artists-block.js';
 import './js/leave-feedback-modal.js';
+import './js/scroll-up.js';
