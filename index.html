@@ -8,7 +8,7 @@
     <script type="module" crossorigin src="/project-okak/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-okak/assets/vendor-2Hd5OlEu.js">
     <link rel="stylesheet" crossorigin href="/project-okak/assets/vendor-BUK5Y4Ob.css">
-    <link rel="stylesheet" crossorigin href="/project-okak/assets/index-DpMSMZwH.css">
+    <link rel="stylesheet" crossorigin href="/project-okak/assets/index-DcEdaJ3J.css">
   </head>
   <body>
     <header class="header">
@@ -236,7 +236,23 @@
   </div>
   </div>
 </footer>
-    
+    <div class="artist-modal-backdrop is-hidden">
+  <div class="artist-modal" role="dialog" aria-modal="true">
+    <button class="modal-close-btn" aria-label="Close modal">
+      <svg class="icon-close" width="14" height="14">
+        <use href="/project-okak/assets/icons-Er7r_hNm.svg#close"></use>
+      </svg>
+    </button>
+    <div class="modal-loader is-hidden"></div>
+
+    <div class="modal-artist">
+      <div class="modal-biography"></div>
+      <p class="modal-albums-title">Albums</p>
+      <ul class="modal-albums"></ul>
+    </div>
+  </div>
+</div>
+
     <div class="mobile-menu js-menu-container" id="mobile-menu">
   <div class="container mobile-menu-container">
     <div class="header-mob-menu">
