@@ -116,6 +116,7 @@ body.modal-open {
   height: 47px;
   border-radius: 12px;
   padding: 10px 24px;
+  border: none;
 
   box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
     inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
@@ -144,7 +145,7 @@ body.modal-open {
   height: 29px;
 }
 
-.star-rating {
+.star-rating-modal {
   direction: rtl;
   unicode-bidi: bidi-override;
   display: inline-flex;
@@ -152,23 +153,23 @@ body.modal-open {
   margin: 0;
 }
 
-.star-rating input[type='radio'] {
+.star-rating-modal input[type='radio'] {
   display: none;
 }
 
-.star-rating label {
+.star-rating-modal label {
   cursor: pointer;
   fill: var(--color-scheme-1-text);
   transition: fill 0.3s ease;
 }
 
-.star-rating label svg {
+.star-rating-modal label svg {
   transition: fill 0.3s ease;
 }
 
-.star-rating input[type='radio']:checked ~ label svg,
-.star-rating label:hover svg,
-.star-rating label:hover ~ label svg {
+.star-rating-modal input[type='radio']:checked ~ label svg,
+.star-rating-modal label:hover svg,
+.star-rating-modal label:hover ~ label svg {
   fill: var(--color-affair);
 }
 
@@ -193,7 +194,7 @@ body.modal-open {
   .modal-content textarea {
     height: 180px;
   }
-  .star-rating label svg {
+  .star-rating-modal label svg {
     width: 30px;
     height: 28px;
   }
