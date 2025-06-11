@@ -1,5 +1,6 @@
 .artists-section {
   padding: 64px 0;
+  scroll-margin-top: 64px;
 }
 .artists-section-title {
   font-family: var(--font-family);

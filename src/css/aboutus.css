@@ -1,6 +1,7 @@
 .aboutus-section {
   padding-bottom: 64px;
   padding-top: 64px;
+  scroll-margin-top: 64px;
 }
 
 .container-aboutu {
