@@ -1,6 +1,5 @@
 .aboutus-section {
-  padding-bottom: 64px;
-  padding-top: 64px;
+  padding: 64px 0;
   scroll-margin-top: 64px;
 }
 
@@ -65,6 +64,10 @@
 
 
 @media only screen and (min-width: 1440px) {
+  .aboutus-section {
+    padding: 120px 0;
+  }
+  
   .container-aboutu {
     padding-left: 64px;
     padding-right: 64px;

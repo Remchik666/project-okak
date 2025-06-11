@@ -77,7 +77,7 @@ function renderAlbumMarkup(album) {
       <li class="modal-track-item">
         <span class="track-name">${track.strTrack}</span>
         <span class="track-time">${minutes}:${seconds}</span>
-        <a class="track-link" target="_blank" href="${track.movie}">${
+        <a class="track-link" target="_blank" rel="noopener noreferrer" href="${track.movie}">${
         track.movie
           ? `<svg class="track-link-youtube">
             <use href="${spriteUrl}#youtube"></use>
