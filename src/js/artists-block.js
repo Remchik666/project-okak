@@ -109,17 +109,29 @@ const genreBtn = document.querySelector('.filter-genre-toggle');
 const genrePanel = document.querySelector('.filter-genre-dropbox');
 
 filterBtn.addEventListener('click', () => {
+  genrePanel.classList.remove('open');
+  genreBtn.classList.remove('open');
+  genreBtn.querySelector('.filter-genre-icon').classList.remove('rotate');
+  sortingPanel.classList.remove('open');
+  sortingBtn.classList.remove('open');
+  sortingBtn.querySelector('.filter-sorting-icon').classList.remove('rotate');
   filterPanel.classList.toggle('open');
   filterBtn.classList.toggle('open');
   filterBtn.querySelector('.filter-toggle-icon').classList.toggle('rotate');
 });
 
 sortingBtn.addEventListener('click', () => {
+  genrePanel.classList.remove('open');
+  genreBtn.classList.remove('open');
+  genreBtn.querySelector('.filter-genre-icon').classList.remove('rotate');
   sortingPanel.classList.toggle('open');
   sortingBtn.classList.toggle('open');
   sortingBtn.querySelector('.filter-sorting-icon').classList.toggle('rotate');
 });
 genreBtn.addEventListener('click', () => {
+  sortingPanel.classList.remove('open');
+  sortingBtn.classList.remove('open');
+  sortingBtn.querySelector('.filter-sorting-icon').classList.remove('rotate');
   genrePanel.classList.toggle('open');
   genreBtn.classList.toggle('open');
   genreBtn.querySelector('.filter-genre-icon').classList.toggle('rotate');
