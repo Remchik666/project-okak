@@ -67,7 +67,7 @@ export function createFeedBack(feedBacks) {
     },
     pagination: {
       el: '.swiper-pagination',
-      clickable: true,
+      clickable: false,
       renderBullet: function (index, className) {
         if (index < 3) {
           return `<span class="${className}" data-bullet="${index}"></span>`;
@@ -102,6 +102,10 @@ export function createFeedBack(feedBacks) {
     },
     autoplay: {
       delay: 5000,
+    },
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
     },
   });
 }
