@@ -84,8 +84,10 @@ export async function getFeedBacks() {
     const baseURL = 'https://sound-wave.b.goit.study/api';
     const endPoint = '/feedbacks';
     const url = baseURL + endPoint;
+    const randomPage = Math.floor(Math.random() * 11) + 1;
     const params = {
       limit: 12,
+      page: randomPage,
     };
 
     const res = await axios.get(url, { params });

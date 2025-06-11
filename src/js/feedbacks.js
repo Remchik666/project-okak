@@ -6,8 +6,7 @@ async function renderFeedbackSection() {
     const response = await getFeedBacks();
     if (response && response.data) {
       const shuffled = [...response.data].sort(() => Math.random() - 0.5);
-      const selected = shuffled.slice(0, 3);
-      createFeedBack(selected);
+      createFeedBack(shuffled);
     } else {
       console.warn('No feedbacks found or wrong format:', response);
     }
