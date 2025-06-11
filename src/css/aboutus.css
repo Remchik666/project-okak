@@ -1,95 +1,84 @@
-.artist-img {
-  border-radius: 16px;
+.aboutus-section {
+  padding-bottom: 64px;
+  padding-top: 64px;
+  scroll-margin-top: 64px;
 }
 
 .container-aboutu {
-  position: static;
-  width: 280px;
+  padding-left: 20px;
+  padding-right: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 48px;
-  padding: 0px;
 }
 
-.container-text {
-  gap: 20px;
-  padding: 0px;
-  margin-top: 48px;
+.about-us-img {
+  border-radius: 16px;
 }
 
-.artists-icon {
-  fill: #f4f4fd;
+.about-us-icon {
+  width: 64px;
+  height: 64px;
+  fill: #fff;
+  margin-bottom: 24px;
 }
-.heading-aboutu {
-  margin: 20px 0px;
-  font-family: Epilogue;
-  font-size: 44px;
+
+.about-us-title {
+  font-family: Epilogue, sans-serif;
   font-weight: 700;
+  font-size: 44px;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  text-align: left;
+  margin-bottom: 20px;
 }
 
-.title-aboutu {
-  font-family: IBM Plex Sans;
-  font-size: 18px;
+.about-us-text {
+  font-family: IBM Plex Sans, sans-serif;
   font-weight: 400;
+  font-size: 18px;
   line-height: 1.5;
-  letter-spacing: 0;
-  text-align: left;
+  color: #fff;
 }
 
-@media screen and (min-width: 768px) {
-  .container-aboutu {
-    max-width: 767px;
-  }
 
-  .container-aboutu {
-    width: 704px;
-    gap: 32px;
-  }
-  .container-text {
+@media only screen and (min-width: 768px) {
+  .about-container {
+    padding-left: 32px;
+    padding-right: 32px;
     gap: 24px;
-    margin-top: 32px;
   }
 
-  .artists-icon {
+  .about-us-icon {
     width: 80px;
+    height: 80px;
+    margin-bottom: 24px;
   }
 
-  .heading-aboutu {
-    margin: 24px 0px;
+  .about-us-title {
+    margin-bottom: 24px;
   }
-  .title-aboutu {
+
+  .about-us-text {
     font-size: 20px;
   }
 }
 
-@media screen and (min-width: 1440px) {
+
+@media only screen and (min-width: 1440px) {
   .container-aboutu {
-    max-width: 1439px;
-    display: flex;
-  }
-  .container-aboutu {
-    flex-direction: row;
+    padding-left: 64px;
+    padding-right: 64px;
+    flex-wrap: nowrap;
     align-items: center;
-    width: 1312px;
+    justify-content: center;
     gap: 32px;
   }
 
-  .container-text {
-    position: static;
+  .about-us-text {
     width: 640px;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 24px;
-    margin-left: 32px;
   }
-  .heading-aboutu {
-    margin: 24px 0px;
+
+  .about-us-title {
     font-size: 60px;
   }
 }

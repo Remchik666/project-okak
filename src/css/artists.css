@@ -26,8 +26,8 @@
   display: flex;
   flex-direction: column;
   gap: 64px;
+  
 }
-
 .loader {
   margin: 32px auto 0;
   width: 48px;
@@ -39,17 +39,14 @@
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
-
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
 }
-
 .hidden {
   position: absolute;
   top: 0;
@@ -364,7 +361,6 @@
 .filter-genre-dropbox.open::-webkit-scrollbar-track {
   background: var(--opacity-transparent);
 }
-
 .filter-genre-dropbox.open::-webkit-scrollbar-thumb {
   background-color: var(--opacity-white-10);
   border-radius: 20px;
@@ -507,11 +503,11 @@
   .artists-filter-form.open {
     border-radius: 12px;
   }
-
+  
   .artists-silence-block {
     padding: 32px;
   }
-
+  
   .artists-silence-button {
     width: 148px;
     padding: 10px 24px;
@@ -546,7 +542,7 @@
   .artists-load-more {
     width: 170px;
   }
-
+  
   .filter-block-wraper {
     display: flex;
     flex-direction: row;
@@ -564,11 +560,11 @@
     justify-content: space-between;
     width: 100%;
   }
-
+  
   .artists-block-wraper {
     min-width: 800px;
   }
-
+  
   .artists-filter-form {
     opacity: 1;
     max-height: 1000px;
@@ -586,11 +582,11 @@
     text-decoration-skip-ink: none;
     color: var(--color-white);
   }
-
+  
   .artists-filter-toggle {
     display: none;
   }
-
+  
   .artists-filter-form,
   .filter-name-box,
   .filter-genre-box {
